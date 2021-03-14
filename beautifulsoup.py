@@ -8,16 +8,6 @@ content = requests.get(url)
 soup = BeautifulSoup(content.text, 'html.parser') 
 help(requests.get)
 
-url = 'https://computational-class.github.io/bigdata/data/test.html'
-content = requests.get(url)
-#help(content)
-print(content.text)
-
-url = 'http://computational-class.github.io/bigdata/data/test.html'
-content = requests.get(url)
-content = content.text
-soup = BeautifulSoup(content, 'html.parser') 
-
 print(soup.prettify())
 
 soup.select('body > p.title > b')[0].text
@@ -48,3 +38,8 @@ soup('head') # or soup.head
 soup('title') 
 soup('p')
 soup.p
+
+path = 'https://vp.fact.qq.com/loadmore?artnum=0&page='
+url = path + '0'
+content = requests.get(url)
+d = content.json()
